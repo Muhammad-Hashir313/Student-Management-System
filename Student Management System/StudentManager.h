@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 using namespace std;
 
 class StudentManager {
@@ -15,8 +16,13 @@ public:
 		int age, rollno;
 
 		cout << "========== ADD STUDENT ==========\n";
-		cout << "Enter Name: ";
-		cin >> name;
+		
+		do {
+			cout << "Enter Name: ";
+			cin.ignore();
+			getline(cin, name);
+		} while (name.empty());
+		
 		do {
 			cout << "Enter Roll no: ";
 			cin >> rollno;
@@ -109,7 +115,7 @@ public:
 		system("cls");
 		int rollno;
 
-		cout << "========== SEARCH STUDENT ==========\n";
+		cout << "========== DELETE STUDENT ==========\n";
 		cout << "Enter Roll no: ";
 		cin >> rollno;
 
@@ -122,5 +128,18 @@ public:
 			}
 		}
 		cout << "No student with this roll number exist!\n";
+	}
+
+	void StudentDataToFile() {
+		ofstream outFile("student.txt");
+		outFile << "=============== STUDENTS RECORD ===============\n\n";
+		for (int i = 0; i < students.size(); i++) {
+			outFile << "S.No: " << i + 1 << endl;
+			outFile << "Name: " << students[i].getName() << endl;
+			outFile << "Roll Number: " << students[i].getRNo() << endl;
+			outFile << "Age: " << students[i].getAge() << endl;
+			outFile << "---------------------\n\n";
+		}
+		outFile.close();
 	}
 };

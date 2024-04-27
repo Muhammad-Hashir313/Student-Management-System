@@ -9,6 +9,7 @@ using namespace std;
 int main() {
 	StudentManager studentmanager;
 	do {
+		studentmanager.StudentDataToFile();
 		char choice;
 		system("cls");
 		cout << "========== STUDENT MANAGEMENT SYSTEM ==========\n";
@@ -53,6 +54,7 @@ int main() {
 
 		default:
 			cout << "Invalid Choice!";
+			system("pasue");
 		}
 	} while (true);
 	
