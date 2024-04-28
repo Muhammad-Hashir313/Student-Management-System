@@ -1,0 +1,8 @@
+=============== STUDENTS RECORD ===============
+
+S.No: 1
+Name: Hashir
+Roll Number: 1
+Age: 17
+---------------------
+
